@@ -1,5 +1,8 @@
 package com.dylan.ProjectManagementSystem.user;
 
+import com.dylan.ProjectManagementSystem.Organization.Organization;
+import com.dylan.ProjectManagementSystem.enums.OrganizationRole;
+import com.dylan.ProjectManagementSystem.project.Project;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +29,9 @@ public class User implements UserDetails {
 
     private String username;
 
-    private String organization;
+    @ManyToOne
+    @JoinColumn(name = "organization_id")
+    private Organization organization;
 
     private String firstName;
 
@@ -37,15 +42,17 @@ public class User implements UserDetails {
     private String password;
 
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private Role securityRole;
+
+    @Enumerated(EnumType.STRING)
+    private OrganizationRole organizationRole;
 
     @OneToMany(mappedBy = "user")
     private List<Project> projects;
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority(role.name()));
+        return List.of(new SimpleGrantedAuthority(securityRole.name()));
     }
 
     @Override
@@ -55,7 +62,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return username;
     }
 
     @Override

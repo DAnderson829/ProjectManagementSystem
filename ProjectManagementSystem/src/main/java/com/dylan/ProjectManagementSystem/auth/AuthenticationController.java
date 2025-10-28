@@ -1,5 +1,7 @@
 package com.dylan.ProjectManagementSystem.auth;
 
+import com.dylan.ProjectManagementSystem.dto.AuthenticationRequest;
+import com.dylan.ProjectManagementSystem.dto.AuthenticationResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

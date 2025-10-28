@@ -1,6 +1,8 @@
 package com.dylan.ProjectManagementSystem.auth;
 
 import com.dylan.ProjectManagementSystem.config.JwtService;
+import com.dylan.ProjectManagementSystem.dto.AuthenticationRequest;
+import com.dylan.ProjectManagementSystem.dto.AuthenticationResponse;
 import com.dylan.ProjectManagementSystem.exception.EmailAlreadyExistsException;
 import com.dylan.ProjectManagementSystem.exception.UsernameAlreadyExistsException;
 import com.dylan.ProjectManagementSystem.user.Role;

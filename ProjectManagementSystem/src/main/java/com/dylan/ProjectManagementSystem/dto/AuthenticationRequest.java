@@ -1,4 +1,4 @@
-package com.dylan.ProjectManagementSystem.auth;
+package com.dylan.ProjectManagementSystem.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationResponse {
+public class AuthenticationRequest {
 
-    private String token;
+    private String username;
+
+    String password;
 }
